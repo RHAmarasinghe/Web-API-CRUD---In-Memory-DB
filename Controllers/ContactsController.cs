@@ -38,5 +38,24 @@ namespace Web_API_CRUD_with_Internal_DB.Controllers
             await dbContext.SaveChangesAsync();
             return Ok(contact);
         }
+
+        [HttpPut]
+        [Route("{id:guid}")]
+        public async Task<IActionResult> UpdateContact([FromRoute] Guid id, UpdateContactRequest updateContactRequest) 
+        { 
+            var contact = dbContext.Contacts.Find(id);
+
+            if (contact != null) 
+            { 
+                contact.FullName = updateContactRequest.FullName;
+                contact.Address = updateContactRequest.Address;
+                contact.Phone = updateContactRequest.Phone;
+                contact.Email = updateContactRequest.Email;
+
+                await dbContext.SaveChangesAsync();
+                return Ok(contact);
+            }
+            return NotFound();        
+        }
     }
 }
