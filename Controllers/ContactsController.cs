@@ -58,7 +58,12 @@ namespace Web_API_CRUD_with_Internal_DB.Controllers
             return NotFound();        
         }
 
-        //test
-        
+        [HttpDelete]
+        public async Task<IActionResult> DeleteContacts(AddContactRequest addContactRequest)
+        {
+            return Ok();
+        }
+
+
     }
 }
