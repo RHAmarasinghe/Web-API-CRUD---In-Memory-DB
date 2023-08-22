@@ -61,6 +61,7 @@ namespace Web_API_CRUD_with_Internal_DB.Controllers
         [HttpDelete]
         public async Task<IActionResult> DeleteContacts(AddContactRequest addContactRequest)
         {
+            //test2
             return Ok();
         }
 
